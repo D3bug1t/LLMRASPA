@@ -7,6 +7,68 @@ from typing import List, Optional, Union, Dict, Any
 from pydantic import BaseModel, Field
 from raspa_logger import RaspaLogger
 from mofdb_client import fetch
+import shutil
+from multiprocessing import Pool, cpu_count
+from datetime import datetime
+from typing import Dict, Any, List, Tuple
+
+
+def _run_single_simulation(args: Tuple[Dict[str, Any], int, str]) -> Dict[str, Any]:
+    """
+    Worker function for a single RASPA simulation.
+    Runs in isolated directory.
+    """
+    config, pressure, job_dir = args
+
+    try:
+        # --- Deep copy config safely ---
+        local_config = {
+            **config,
+            "Framework": {**config["Framework"]},
+            "Component": {**config["Component"]}
+        }
+        local_config["Framework"]["ExternalPressure"] = [pressure]
+
+        run_dir = os.path.join(job_dir, f"p_{pressure}")
+        os.makedirs(run_dir, exist_ok=True)
+
+        # --- Generate input ---
+        from copy import deepcopy
+        content = RaspaAgent().generate_raspa_file_content(deepcopy(local_config))
+
+        input_path = os.path.join(run_dir, "simulation.input")
+        with open(input_path, "w") as f:
+            f.write(content)
+
+        # --- Run simulation ---
+        process = subprocess.Popen(
+            ["simulate", "simulation.input"],
+            cwd=run_dir,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            text=True
+        )
+
+        stdout_lines = []
+        for line in process.stdout:
+            stdout_lines.append(line)
+
+        process.wait()
+
+        return {
+            "pressure": pressure,
+            "status": "success" if process.returncode == 0 else "failed",
+            "returncode": process.returncode,
+            "log_tail": "".join(stdout_lines[-20:])  # last 20 lines only
+        }
+
+    except Exception as e:
+        return {
+            "pressure": pressure,
+            "status": "error",
+            "error": str(e)
+        }
+
 
 # --- 1. Pydantic Models for LLM Output Validation ---
 
@@ -218,6 +280,92 @@ class RaspaAgent:
                 config["Component"]["MoleculeDefinition"] = "TraPPE"
 
         return config
+    
+    def run_parallel(self, simulation_block: Dict[str, Any], selected_framework: str,request_id: Optional[int] = None):
+        """
+        Production-ready parallel RASPA runner.
+        """
+
+        print(f"\n🚀 Preparing simulation for {selected_framework}")
+
+        # --- Prepare config ---
+        config = self.merge_defaults(simulation_block, selected_framework)
+
+        cif_file = self.fetch_and_save_cif(selected_framework)
+        if not cif_file:
+            raise RuntimeError("CIF fetch failed. Aborting simulation.")
+
+        # --- Validate forcefield ---
+        forcefield = config["Forcefield"]
+        if not self.validate_forcefield(forcefield):
+            # raise ValueError(f"Forcefield '{config['Forcefield']}' not found.")
+            print(f"❌ Forcefield '{forcefield}' not found.")
+            print("Available forcefields:")
+            ff_dir = os.path.join(os.environ["RASPA_DIR"], "share/raspa/forcefield")
+            for ff in os.listdir(ff_dir):
+                print(" -", ff)
+            chosen = input("Enter forcefield to use: ").strip()
+            config["Forcefield"] = chosen
+
+        pressures = config["Framework"]["ExternalPressure"]
+        if not isinstance(pressures, list):
+            pressures = [pressures]
+
+        # --- Create job directory ---
+        job_id = datetime.now().strftime("%Y%m%d_%H%M%S")
+        job_dir = os.path.join("Output", f"job_{job_id}")
+        os.makedirs(job_dir, exist_ok=True)
+
+        print(f"📁 Job directory: {job_dir}")
+        print(f"📊 Running {len(pressures)} simulations in parallel")
+
+        # --- Determine worker count ---
+        max_workers = min(len(pressures), cpu_count())
+        print(f"⚙️ Using {max_workers} CPU cores")
+
+        # --- Prepare args ---
+        args_list = [(config, p, job_dir) for p in pressures]
+
+        # --- Run multiprocessing ---
+        with Pool(processes=max_workers) as pool:
+            results = pool.map(_run_single_simulation, args_list)
+
+        # --- Process results ---
+        success = [r for r in results if r["status"] == "success"]
+        failed = [r for r in results if r["status"] != "success"]
+
+        print("\n📊 Simulation Summary:")
+        print(f"✅ Success: {len(success)}")
+        print(f"❌ Failed: {len(failed)}")
+
+        if failed:
+            print("\n⚠️ Failed Runs:")
+            for f in failed:
+                print(f"Pressure: {f['pressure']} | Status: {f['status']}")
+                if "log_tail" in f:
+                    print(f["log_tail"])
+
+        # --- Optional: collect outputs ---
+        for p in pressures:
+            src_dir = os.path.join(job_dir, f"p_{p}", "Output", "System_0")
+            if os.path.exists(src_dir):
+                for file in os.listdir(src_dir):
+                    if file.endswith(".data"):
+                        shutil.copy(
+                            os.path.join(src_dir, file),
+                            os.path.join(job_dir, f"p{p}_{file}")
+                        )
+
+        # --- Generate isotherm plot if applicable ---
+        is_isotherm = len(pressures) > 1
+
+        if is_isotherm and len(success) > 0:
+            from plot_isotherm import generate_isotherm_plot
+            print(f"\n📊 Combining {len(pressures)} outputs to generate Isotherm Plot...")
+            generate_isotherm_plot(job_dir, "Plots")
+        print("\n🎉 All simulations completed.")
+
+        return results
 
     # ---------------------------------
     # Fetch CIF
@@ -373,8 +521,8 @@ Component 0 MoleculeName              {config['Component']['Name']}
             if process.returncode != 0:
                 print(f"❌ Simulation failed at pressure {p} Pa.")
                 if is_isotherm:
-                     print("Aborting remaining points.")
-                     break
+                    print("Aborting remaining points.")
+                    break
             else:
                 if not is_isotherm:
                     print("✅ Simulation completed successfully.")

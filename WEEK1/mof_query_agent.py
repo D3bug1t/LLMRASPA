@@ -98,7 +98,7 @@ Rules:
    - "high porosity" → vf_min = 0.6
    - "microporous" → pld_max = 2.0
    - "large pore" → lcd_min = 10.0
-   and others as needed based on common MOF terminology.
+   and others as needed based on common MOF terminology(these values are just examples for references, adjust these values intelligently).
 6. Default limit = 20 if not specified.
 
 Return JSON in this exact structure:

@@ -100,7 +100,7 @@ class WorkflowEngine:
         # ----------------------------------
         print("\n⚙ Preparing RASPA simulation...")
         step_start = time.time()
-        self.raspa.run(
+        self.raspa.run_parallel(
             simulation_block=simulation_block,
             selected_framework=selected_mof.name,
             request_id=request_id

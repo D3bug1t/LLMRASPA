@@ -41,10 +41,12 @@ def main():
     
     load_dotenv()
     GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+    print(GOOGLE_API_KEY)
     if "RASPA_DIR" in os.environ:
         os.environ["PATH"] = os.path.join(os.environ["RASPA_DIR"], "bin") + os.pathsep + os.environ.get("PATH", "")
 
     api_key = GOOGLE_API_KEY # Set if needed
+    # api_key = None
     engine = WorkflowEngine(api_key=api_key)
 
     while True:
