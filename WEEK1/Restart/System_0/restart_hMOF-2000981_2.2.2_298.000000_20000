@@ -37,7 +37,7 @@ Component 0 (CO2)
 	Maximum-CF-Lambda-change component 0: 0.500000
 	Maximum-CBCF-Lambda-change component 0: 0.500000
 
-	Maximum-translation-change component 0: 1.000000,0.750000,0.750000
+	Maximum-translation-change component 0: 1.000000,0.487500,0.487500
 	Maximum-translation-in-plane-change component 0: 0.000000,0.000000,0.000000
 	Maximum-rotation-change component 0: 1.472622 0.490874 0.490874
 
@@ -45,30 +45,30 @@ Reactions: 0
 
 Component: 0     Adsorbate    2 molecules of CO2
 ------------------------------------------------------------------------
-Adsorbate-atom-position: 0 0     1.454148905928    31.846399527899     9.944898694825
-Adsorbate-atom-position: 0 1     1.691095952537    31.719903046815    11.062062844526
-Adsorbate-atom-position: 0 2     1.928042999146    31.593406565732    12.179226994227
-Adsorbate-atom-position: 1 0     7.785434532288    88.052539397641    62.720604192925
-Adsorbate-atom-position: 1 1     8.898003217564    88.338882311712    62.700612792125
-Adsorbate-atom-position: 1 2    10.010571902839    88.625225225783    62.680621391326
-Adsorbate-atom-velocity: 0 0     2.251346897291    -0.216095205158    -1.437075562693
-Adsorbate-atom-velocity: 0 1     1.902188477549    -0.512510875002    -1.396583288397
-Adsorbate-atom-velocity: 0 2     1.553030057808    -0.808926544846    -1.356091014101
-Adsorbate-atom-velocity: 1 0    -2.824879857795    -0.392558716729     3.231345865043
-Adsorbate-atom-velocity: 1 1    -2.584996465810    -1.521503803450     0.411199518934
-Adsorbate-atom-velocity: 1 2    -2.345113073825    -2.650448890171    -2.408946827175
-Adsorbate-atom-force:    0 0    -3.785390250937     0.607384175362    -3.322510365907
-Adsorbate-atom-force:    0 1    -1.886360028046     0.424354188942    -0.650145004674
-Adsorbate-atom-force:    0 2    -1.537618907029     1.704255998727    -0.120105486290
-Adsorbate-atom-force:    1 0    -3.802182048661   -14.504597521037   -20.912043263897
-Adsorbate-atom-force:    1 1    -3.008532060124    -6.921231852455    -6.210542159114
-Adsorbate-atom-force:    1 2    -3.438672805185   -10.494760582611    -6.773034247037
-Adsorbate-atom-charge:   0 0    -0.325600000000
-Adsorbate-atom-charge:   0 1     0.651200000000
-Adsorbate-atom-charge:   0 2    -0.325600000000
-Adsorbate-atom-charge:   1 0    -0.325600000000
-Adsorbate-atom-charge:   1 1     0.651200000000
-Adsorbate-atom-charge:   1 2    -0.325600000000
+Adsorbate-atom-position: 0 0    16.489352395784    61.633931863435    17.058206142693
+Adsorbate-atom-position: 0 1    16.702296588806    61.877143009710    15.944158069679
+Adsorbate-atom-position: 0 2    16.915240781827    62.120354155985    14.830109996665
+Adsorbate-atom-position: 1 0    30.908878958813    16.546275630564    20.316821128814
+Adsorbate-atom-position: 1 1    31.115793456129    16.186982731776    21.400193181103
+Adsorbate-atom-position: 1 2    31.322707953445    15.827689832988    22.483565233392
+Adsorbate-atom-velocity: 0 0     2.517078840287    -2.080080366905    -0.618099612621
+Adsorbate-atom-velocity: 0 1     1.589796204350     0.328542339157    -0.269511031859
+Adsorbate-atom-velocity: 0 2     0.662513568412     2.737165045219     0.079077548904
+Adsorbate-atom-velocity: 1 0     2.745773861374    -0.635973638462    -3.708732401889
+Adsorbate-atom-velocity: 1 1     4.241055615780     1.805747719271    -3.184537901122
+Adsorbate-atom-velocity: 1 2     5.736337370186     4.247469077005    -2.660343400356
+Adsorbate-atom-force:    0 0    -0.039836574210     0.045288481320     0.044509887040
+Adsorbate-atom-force:    0 1     0.019256791562    -0.026053794333    -0.005756124107
+Adsorbate-atom-force:    0 2     0.020557542159    -0.019064836647    -0.039021259984
+Adsorbate-atom-force:    1 0    -0.003483601643    -0.000957460605    -0.032629212074
+Adsorbate-atom-force:    1 1    -0.026778771902     0.013724365834     0.026390974399
+Adsorbate-atom-force:    1 2     0.030284614034    -0.012936755569     0.006505734726
+Adsorbate-atom-charge:   0 0    -0.350000000000
+Adsorbate-atom-charge:   0 1     0.700000000000
+Adsorbate-atom-charge:   0 2    -0.350000000000
+Adsorbate-atom-charge:   1 0    -0.350000000000
+Adsorbate-atom-charge:   1 1     0.700000000000
+Adsorbate-atom-charge:   1 2    -0.350000000000
 Adsorbate-atom-scaling:  0 0     1.000000000000
 Adsorbate-atom-scaling:  0 1     1.000000000000
 Adsorbate-atom-scaling:  0 2     1.000000000000

@@ -2617,6 +2617,1250 @@
       ],
       "final_result": "Workflow completed successfully",
       "completed_at": "2026-03-17T15:01:01.779068"
+    },
+    {
+      "request_id": 24,
+      "timestamp": "2026-03-30T23:10:50.583810",
+      "query": "Perform a series of GCMC simulations to generate a CO2 adsorption isotherm at 298 K on a high surface area microporous MOF. Use the TraPPE force field for CO2.Plot an isotherm using 10 points upto 1 bar . For each pressure point, run 1000 production cycles after 500 initialization cycles",
+      "steps": [
+        {
+          "step": "intent_extracted",
+          "details": {
+            "simulation": {
+              "simulation_type": "MonteCarlo",
+              "system": {
+                "framework_name": null,
+                "temperature": 298.0,
+                "pressure_list": [
+                  100000
+                ],
+                "unit_cells": null,
+                "helium_void_fraction": null
+              },
+              "parameters": {
+                "number_of_cycles": null,
+                "initialization_cycles": null,
+                "forcefield": null,
+                "cutoff": null
+              },
+              "component": {
+                "name": "CO2",
+                "mole_fraction": 1.0
+              }
+            },
+            "discovery": {
+              "mofid": null,
+              "mofkey": null,
+              "name": null,
+              "database": null,
+              "vf_min": 0.6,
+              "vf_max": null,
+              "lcd_min": null,
+              "lcd_max": null,
+              "pld_min": null,
+              "pld_max": 2.0,
+              "sa_m2g_min": 1500,
+              "sa_m2g_max": null,
+              "sa_m2cm3_min": null,
+              "sa_m2cm3_max": null,
+              "pressure_unit": null,
+              "loading_unit": null,
+              "limit": 20
+            }
+          },
+          "time_taken": 6.67572021484375e-06,
+          "timestamp": "2026-03-30T23:10:50.589821"
+        },
+        {
+          "step": "discovery_started",
+          "details": {
+            "filters": {
+              "mofid": null,
+              "mofkey": null,
+              "name": null,
+              "database": null,
+              "vf_min": 0.6,
+              "vf_max": null,
+              "lcd_min": null,
+              "lcd_max": null,
+              "pld_min": null,
+              "pld_max": 2.0,
+              "sa_m2g_min": 1500,
+              "sa_m2g_max": null,
+              "sa_m2cm3_min": null,
+              "sa_m2cm3_max": null,
+              "pressure_unit": null,
+              "loading_unit": null,
+              "limit": 20
+            }
+          },
+          "time_taken": 0,
+          "timestamp": "2026-03-30T23:10:50.593723"
+        },
+        {
+          "step": "mof_retrieved",
+          "details": {
+            "mof_name": "hMOF-2000981"
+          },
+          "time_taken": 187.9519383907318,
+          "timestamp": "2026-03-30T23:13:58.546709"
+        }
+      ],
+      "final_result": null
+    },
+    {
+      "request_id": 25,
+      "timestamp": "2026-03-30T23:41:59.281914",
+      "query": "Perform a series of GCMC simulations to generate a CO2 adsorption isotherm at 298 K on a high surface area microporous MOF. Use the TraPPE force field for CO2.Plot an isotherm using 10 points upto 1 bar . For each pressure point, run 1000 production cycles after 500 initialization cycles",
+      "steps": [
+        {
+          "step": "intent_extracted",
+          "details": {
+            "simulation": {
+              "simulation_type": "MonteCarlo",
+              "system": {
+                "framework_name": null,
+                "temperature": 298.0,
+                "pressure_list": [
+                  100000
+                ],
+                "unit_cells": null,
+                "helium_void_fraction": null
+              },
+              "parameters": {
+                "number_of_cycles": null,
+                "initialization_cycles": null,
+                "forcefield": null,
+                "cutoff": null
+              },
+              "component": {
+                "name": "CO2",
+                "mole_fraction": 1.0
+              }
+            },
+            "discovery": {
+              "mofid": null,
+              "mofkey": null,
+              "name": null,
+              "database": null,
+              "vf_min": 0.6,
+              "vf_max": null,
+              "lcd_min": null,
+              "lcd_max": null,
+              "pld_min": null,
+              "pld_max": 2.0,
+              "sa_m2g_min": 1500,
+              "sa_m2g_max": null,
+              "sa_m2cm3_min": null,
+              "sa_m2cm3_max": null,
+              "pressure_unit": null,
+              "loading_unit": null,
+              "limit": 20
+            }
+          },
+          "time_taken": 5.4836273193359375e-06,
+          "timestamp": "2026-03-30T23:41:59.284923"
+        },
+        {
+          "step": "discovery_started",
+          "details": {
+            "filters": {
+              "mofid": null,
+              "mofkey": null,
+              "name": null,
+              "database": null,
+              "vf_min": 0.6,
+              "vf_max": null,
+              "lcd_min": null,
+              "lcd_max": null,
+              "pld_min": null,
+              "pld_max": 2.0,
+              "sa_m2g_min": 1500,
+              "sa_m2g_max": null,
+              "sa_m2cm3_min": null,
+              "sa_m2cm3_max": null,
+              "pressure_unit": null,
+              "loading_unit": null,
+              "limit": 20
+            }
+          },
+          "time_taken": 0,
+          "timestamp": "2026-03-30T23:41:59.304502"
+        },
+        {
+          "step": "mof_retrieved",
+          "details": {
+            "mof_name": "hMOF-2000981"
+          },
+          "time_taken": 86.50509643554688,
+          "timestamp": "2026-03-30T23:43:25.809329"
+        }
+      ],
+      "final_result": null
+    },
+    {
+      "request_id": 26,
+      "timestamp": "2026-03-30T23:55:49.903896",
+      "query": "Perform a series of GCMC simulations to generate a CO2 adsorption isotherm at 298 K on a high surface area microporous MOF. Use the TraPPE force field for CO2.Plot an isotherm using 10 points upto 1 bar . For each pressure point, run 1000 production cycles after 500 initialization cycles",
+      "steps": [
+        {
+          "step": "intent_extracted",
+          "details": {
+            "simulation": {
+              "simulation_type": "MonteCarlo",
+              "system": {
+                "framework_name": null,
+                "temperature": 298.0,
+                "pressure_list": [
+                  100000
+                ],
+                "unit_cells": null,
+                "helium_void_fraction": null
+              },
+              "parameters": {
+                "number_of_cycles": null,
+                "initialization_cycles": null,
+                "forcefield": null,
+                "cutoff": null
+              },
+              "component": {
+                "name": "CO2",
+                "mole_fraction": 1.0
+              }
+            },
+            "discovery": {
+              "mofid": null,
+              "mofkey": null,
+              "name": null,
+              "database": null,
+              "vf_min": 0.6,
+              "vf_max": null,
+              "lcd_min": null,
+              "lcd_max": null,
+              "pld_min": null,
+              "pld_max": 2.0,
+              "sa_m2g_min": 1500,
+              "sa_m2g_max": null,
+              "sa_m2cm3_min": null,
+              "sa_m2cm3_max": null,
+              "pressure_unit": null,
+              "loading_unit": null,
+              "limit": 20
+            }
+          },
+          "time_taken": 8.106231689453125e-06,
+          "timestamp": "2026-03-30T23:55:49.907286"
+        },
+        {
+          "step": "discovery_started",
+          "details": {
+            "filters": {
+              "mofid": null,
+              "mofkey": null,
+              "name": null,
+              "database": null,
+              "vf_min": 0.6,
+              "vf_max": null,
+              "lcd_min": null,
+              "lcd_max": null,
+              "pld_min": null,
+              "pld_max": 2.0,
+              "sa_m2g_min": 1500,
+              "sa_m2g_max": null,
+              "sa_m2cm3_min": null,
+              "sa_m2cm3_max": null,
+              "pressure_unit": null,
+              "loading_unit": null,
+              "limit": 20
+            }
+          },
+          "time_taken": 0,
+          "timestamp": "2026-03-30T23:55:49.941845"
+        },
+        {
+          "step": "mof_retrieved",
+          "details": {
+            "mof_name": "hMOF-2000981"
+          },
+          "time_taken": 93.73826169967651,
+          "timestamp": "2026-03-30T23:57:23.680181"
+        }
+      ],
+      "final_result": null
+    },
+    {
+      "request_id": 27,
+      "timestamp": "2026-03-30T23:58:41.958166",
+      "query": "Perform a series of GCMC simulations to generate a CO2 adsorption isotherm at 298 K on a high surface area microporous MOF. Use the TraPPE force field for CO2.Plot an isotherm using 10 points upto 1 bar . For each pressure point, run 1000 production cycles after 500 initialization cycles",
+      "steps": [
+        {
+          "step": "intent_extracted",
+          "details": {
+            "simulation": {
+              "simulation_type": "MonteCarlo",
+              "system": {
+                "framework_name": null,
+                "temperature": 298.0,
+                "pressure_list": [
+                  100000
+                ],
+                "unit_cells": null,
+                "helium_void_fraction": null
+              },
+              "parameters": {
+                "number_of_cycles": null,
+                "initialization_cycles": null,
+                "forcefield": null,
+                "cutoff": null
+              },
+              "component": {
+                "name": "CO2",
+                "mole_fraction": 1.0
+              }
+            },
+            "discovery": {
+              "mofid": null,
+              "mofkey": null,
+              "name": null,
+              "database": null,
+              "vf_min": 0.6,
+              "vf_max": null,
+              "lcd_min": null,
+              "lcd_max": null,
+              "pld_min": null,
+              "pld_max": 2.0,
+              "sa_m2g_min": 1500,
+              "sa_m2g_max": null,
+              "sa_m2cm3_min": null,
+              "sa_m2cm3_max": null,
+              "pressure_unit": null,
+              "loading_unit": null,
+              "limit": 20
+            }
+          },
+          "time_taken": 9.059906005859375e-06,
+          "timestamp": "2026-03-30T23:58:41.962347"
+        },
+        {
+          "step": "discovery_started",
+          "details": {
+            "filters": {
+              "mofid": null,
+              "mofkey": null,
+              "name": null,
+              "database": null,
+              "vf_min": 0.6,
+              "vf_max": null,
+              "lcd_min": null,
+              "lcd_max": null,
+              "pld_min": null,
+              "pld_max": 2.0,
+              "sa_m2g_min": 1500,
+              "sa_m2g_max": null,
+              "sa_m2cm3_min": null,
+              "sa_m2cm3_max": null,
+              "pressure_unit": null,
+              "loading_unit": null,
+              "limit": 20
+            }
+          },
+          "time_taken": 0,
+          "timestamp": "2026-03-30T23:58:41.965950"
+        },
+        {
+          "step": "mof_retrieved",
+          "details": {
+            "mof_name": "hMOF-2000981"
+          },
+          "time_taken": 88.32061576843262,
+          "timestamp": "2026-03-31T00:00:10.286661"
+        }
+      ],
+      "final_result": null
+    },
+    {
+      "request_id": 28,
+      "timestamp": "2026-03-31T00:05:03.255222",
+      "query": "Perform a series of GCMC simulations to generate a CO2 adsorption isotherm at 298 K on a high surface area microporous MOF. Use the TraPPE force field for CO2.Plot an isotherm using 10 points upto 1 bar . For each pressure point, run 1000 production cycles after 500 initialization cycles",
+      "steps": [
+        {
+          "step": "intent_extracted",
+          "details": {
+            "simulation": {
+              "simulation_type": "MonteCarlo",
+              "system": {
+                "framework_name": null,
+                "temperature": 298.0,
+                "pressure_list": [
+                  100000
+                ],
+                "unit_cells": null,
+                "helium_void_fraction": null
+              },
+              "parameters": {
+                "number_of_cycles": null,
+                "initialization_cycles": null,
+                "forcefield": null,
+                "cutoff": null
+              },
+              "component": {
+                "name": "CO2",
+                "mole_fraction": 1.0
+              }
+            },
+            "discovery": {
+              "mofid": null,
+              "mofkey": null,
+              "name": null,
+              "database": null,
+              "vf_min": 0.6,
+              "vf_max": null,
+              "lcd_min": null,
+              "lcd_max": null,
+              "pld_min": null,
+              "pld_max": 2.0,
+              "sa_m2g_min": 1500,
+              "sa_m2g_max": null,
+              "sa_m2cm3_min": null,
+              "sa_m2cm3_max": null,
+              "pressure_unit": null,
+              "loading_unit": null,
+              "limit": 20
+            }
+          },
+          "time_taken": 8.106231689453125e-06,
+          "timestamp": "2026-03-31T00:05:03.259105"
+        },
+        {
+          "step": "discovery_started",
+          "details": {
+            "filters": {
+              "mofid": null,
+              "mofkey": null,
+              "name": null,
+              "database": null,
+              "vf_min": 0.6,
+              "vf_max": null,
+              "lcd_min": null,
+              "lcd_max": null,
+              "pld_min": null,
+              "pld_max": 2.0,
+              "sa_m2g_min": 1500,
+              "sa_m2g_max": null,
+              "sa_m2cm3_min": null,
+              "sa_m2cm3_max": null,
+              "pressure_unit": null,
+              "loading_unit": null,
+              "limit": 20
+            }
+          },
+          "time_taken": 0,
+          "timestamp": "2026-03-31T00:05:03.262848"
+        }
+      ],
+      "final_result": null
+    },
+    {
+      "request_id": 29,
+      "timestamp": "2026-03-31T00:12:03.625341",
+      "query": "Perform a series of GCMC simulations to generate a CO2 adsorption isotherm at 298 K on a high surface area microporous MOF. Use the TraPPE force field for CO2.Plot an isotherm using 10 points upto 1 bar . For each pressure point, run 1000 production cycles after 500 initialization cycles",
+      "steps": [
+        {
+          "step": "intent_extracted",
+          "details": {
+            "simulation": {
+              "simulation_type": "MonteCarlo",
+              "system": {
+                "framework_name": null,
+                "temperature": 298.0,
+                "pressure_list": [
+                  0.0,
+                  11111.11,
+                  22222.22,
+                  33333.33,
+                  44444.44,
+                  55555.55,
+                  66666.66,
+                  77777.77,
+                  88888.88,
+                  100000.0
+                ],
+                "unit_cells": null,
+                "helium_void_fraction": null
+              },
+              "parameters": {
+                "number_of_cycles": 1000,
+                "initialization_cycles": 500,
+                "forcefield": "TraPPE",
+                "cutoff": null
+              },
+              "component": {
+                "name": "CO2",
+                "mole_fraction": 1.0
+              }
+            },
+            "discovery": {
+              "mofid": null,
+              "mofkey": null,
+              "name": null,
+              "database": null,
+              "vf_min": null,
+              "vf_max": null,
+              "lcd_min": null,
+              "lcd_max": null,
+              "pld_min": null,
+              "pld_max": 2.0,
+              "sa_m2g_min": 1500,
+              "sa_m2g_max": null,
+              "sa_m2cm3_min": null,
+              "sa_m2cm3_max": null,
+              "pressure_unit": "Pa",
+              "loading_unit": null,
+              "limit": 20
+            }
+          },
+          "time_taken": 10.934737920761108,
+          "timestamp": "2026-03-31T00:12:14.563986"
+        },
+        {
+          "step": "discovery_started",
+          "details": {
+            "filters": {
+              "mofid": null,
+              "mofkey": null,
+              "name": null,
+              "database": null,
+              "vf_min": null,
+              "vf_max": null,
+              "lcd_min": null,
+              "lcd_max": null,
+              "pld_min": null,
+              "pld_max": 2.0,
+              "sa_m2g_min": 1500,
+              "sa_m2g_max": null,
+              "sa_m2cm3_min": null,
+              "sa_m2cm3_max": null,
+              "pressure_unit": "Pa",
+              "loading_unit": null,
+              "limit": 20
+            }
+          },
+          "time_taken": 0,
+          "timestamp": "2026-03-31T00:12:14.567331"
+        },
+        {
+          "step": "mof_retrieved",
+          "details": {
+            "mof_name": "hMOF-2000981"
+          },
+          "time_taken": 58.88590598106384,
+          "timestamp": "2026-03-31T00:13:13.453331"
+        }
+      ],
+      "final_result": null
+    },
+    {
+      "request_id": 30,
+      "timestamp": "2026-03-31T00:27:35.803601",
+      "query": "Perform a series of GCMC simulations to generate a CO2 adsorption isotherm at 298 K on a high surface area microporous MOF. Use the TraPPE force field for CO2.Plot an isotherm using 10 points upto 1 bar . For each pressure point, run 1000 production cycles after 500 initialization cycles",
+      "steps": [
+        {
+          "step": "intent_extracted",
+          "details": {
+            "simulation": {
+              "simulation_type": "MonteCarlo",
+              "system": {
+                "framework_name": null,
+                "temperature": 298.0,
+                "pressure_list": [
+                  0.0,
+                  100000.0
+                ],
+                "unit_cells": null,
+                "helium_void_fraction": null
+              },
+              "parameters": {
+                "number_of_cycles": 1000,
+                "initialization_cycles": 500,
+                "forcefield": "TraPPE",
+                "cutoff": null
+              },
+              "component": {
+                "name": "CO2",
+                "mole_fraction": 1.0
+              }
+            },
+            "discovery": {
+              "mofid": null,
+              "mofkey": null,
+              "name": null,
+              "database": null,
+              "vf_min": null,
+              "vf_max": null,
+              "lcd_min": null,
+              "lcd_max": null,
+              "pld_min": null,
+              "pld_max": 2.0,
+              "sa_m2g_min": 1500.0,
+              "sa_m2g_max": null,
+              "sa_m2cm3_min": null,
+              "sa_m2cm3_max": null,
+              "pressure_unit": null,
+              "loading_unit": null,
+              "limit": 20
+            }
+          },
+          "time_taken": 12.138162851333618,
+          "timestamp": "2026-03-31T00:27:47.945254"
+        },
+        {
+          "step": "discovery_started",
+          "details": {
+            "filters": {
+              "mofid": null,
+              "mofkey": null,
+              "name": null,
+              "database": null,
+              "vf_min": null,
+              "vf_max": null,
+              "lcd_min": null,
+              "lcd_max": null,
+              "pld_min": null,
+              "pld_max": 2.0,
+              "sa_m2g_min": 1500.0,
+              "sa_m2g_max": null,
+              "sa_m2cm3_min": null,
+              "sa_m2cm3_max": null,
+              "pressure_unit": null,
+              "loading_unit": null,
+              "limit": 20
+            }
+          },
+          "time_taken": 0,
+          "timestamp": "2026-03-31T00:27:47.948995"
+        },
+        {
+          "step": "mof_retrieved",
+          "details": {
+            "mof_name": "hMOF-2000981"
+          },
+          "time_taken": 76.71716237068176,
+          "timestamp": "2026-03-31T00:29:04.666277"
+        },
+        {
+          "step": "raspa_completed",
+          "details": {
+            "status": "success"
+          },
+          "time_taken": 300.9676878452301,
+          "timestamp": "2026-03-31T00:34:05.637775"
+        }
+      ],
+      "final_result": "Workflow completed successfully",
+      "completed_at": "2026-03-31T00:34:05.642312"
+    },
+    {
+      "request_id": 31,
+      "timestamp": "2026-03-31T00:41:10.613169",
+      "query": "Perform a series of GCMC simulations to generate a CO2 adsorption isotherm at 298 K on a high surface area microporous MOF. Use the TraPPE force field for CO2.Plot an isotherm using 10 points upto 1 bar . For each pressure point, run 100 production cycles after 50 initialization cycles",
+      "steps": [
+        {
+          "step": "intent_extracted",
+          "details": {
+            "simulation": {
+              "simulation_type": "MonteCarlo",
+              "system": {
+                "framework_name": null,
+                "temperature": 298.0,
+                "pressure_list": [
+                  10000.0,
+                  20000.0,
+                  30000.0,
+                  40000.0,
+                  50000.0,
+                  60000.0,
+                  70000.0,
+                  80000.0,
+                  90000.0,
+                  100000.0
+                ],
+                "unit_cells": null,
+                "helium_void_fraction": null
+              },
+              "parameters": {
+                "number_of_cycles": 100,
+                "initialization_cycles": 50,
+                "forcefield": "TraPPE",
+                "cutoff": null
+              },
+              "component": {
+                "name": "CO2",
+                "mole_fraction": null
+              }
+            },
+            "discovery": {
+              "mofid": null,
+              "mofkey": null,
+              "name": null,
+              "database": null,
+              "vf_min": null,
+              "vf_max": null,
+              "lcd_min": null,
+              "lcd_max": null,
+              "pld_min": null,
+              "pld_max": 2.0,
+              "sa_m2g_min": 1500.0,
+              "sa_m2g_max": null,
+              "sa_m2cm3_min": null,
+              "sa_m2cm3_max": null,
+              "pressure_unit": null,
+              "loading_unit": null,
+              "limit": 20
+            }
+          },
+          "time_taken": 9.617477416992188,
+          "timestamp": "2026-03-31T00:41:20.234537"
+        },
+        {
+          "step": "discovery_started",
+          "details": {
+            "filters": {
+              "mofid": null,
+              "mofkey": null,
+              "name": null,
+              "database": null,
+              "vf_min": null,
+              "vf_max": null,
+              "lcd_min": null,
+              "lcd_max": null,
+              "pld_min": null,
+              "pld_max": 2.0,
+              "sa_m2g_min": 1500.0,
+              "sa_m2g_max": null,
+              "sa_m2cm3_min": null,
+              "sa_m2cm3_max": null,
+              "pressure_unit": null,
+              "loading_unit": null,
+              "limit": 20
+            }
+          },
+          "time_taken": 0,
+          "timestamp": "2026-03-31T00:41:20.238291"
+        },
+        {
+          "step": "mof_retrieved",
+          "details": {
+            "mof_name": "hMOF-2000981"
+          },
+          "time_taken": 109.34593725204468,
+          "timestamp": "2026-03-31T00:43:09.584352"
+        },
+        {
+          "step": "raspa_completed",
+          "details": {
+            "status": "success"
+          },
+          "time_taken": 225.83136534690857,
+          "timestamp": "2026-03-31T00:46:55.420115"
+        }
+      ],
+      "final_result": "Workflow completed successfully",
+      "completed_at": "2026-03-31T00:46:55.424664"
+    },
+    {
+      "request_id": 32,
+      "timestamp": "2026-03-31T00:56:49.117562",
+      "query": "Perform a series of GCMC simulations to generate a CO2 adsorption isotherm at 298 K on a high surface area microporous MOF. Use the TraPPE force field for CO2.Plot an isotherm using 10 points upto 1 bar . For each pressure point, run 100 production cycles after 50 initialization cycles",
+      "steps": [
+        {
+          "step": "intent_extracted",
+          "details": {
+            "simulation": {
+              "simulation_type": "MonteCarlo",
+              "system": {
+                "framework_name": null,
+                "temperature": 298.0,
+                "pressure_list": [
+                  10000.0,
+                  20000.0,
+                  30000.0,
+                  40000.0,
+                  50000.0,
+                  60000.0,
+                  70000.0,
+                  80000.0,
+                  90000.0,
+                  100000.0
+                ],
+                "unit_cells": null,
+                "helium_void_fraction": null
+              },
+              "parameters": {
+                "number_of_cycles": 100,
+                "initialization_cycles": 50,
+                "forcefield": "TraPPE",
+                "cutoff": null
+              },
+              "component": {
+                "name": "CO2",
+                "mole_fraction": 1.0
+              }
+            },
+            "discovery": {
+              "mofid": null,
+              "mofkey": null,
+              "name": null,
+              "database": null,
+              "vf_min": null,
+              "vf_max": null,
+              "lcd_min": null,
+              "lcd_max": null,
+              "pld_min": null,
+              "pld_max": 2.0,
+              "sa_m2g_min": 1500,
+              "sa_m2g_max": null,
+              "sa_m2cm3_min": null,
+              "sa_m2cm3_max": null,
+              "pressure_unit": null,
+              "loading_unit": null,
+              "limit": 20
+            }
+          },
+          "time_taken": 7.553696155548096,
+          "timestamp": "2026-03-31T00:56:56.675109"
+        },
+        {
+          "step": "discovery_started",
+          "details": {
+            "filters": {
+              "mofid": null,
+              "mofkey": null,
+              "name": null,
+              "database": null,
+              "vf_min": null,
+              "vf_max": null,
+              "lcd_min": null,
+              "lcd_max": null,
+              "pld_min": null,
+              "pld_max": 2.0,
+              "sa_m2g_min": 1500,
+              "sa_m2g_max": null,
+              "sa_m2cm3_min": null,
+              "sa_m2cm3_max": null,
+              "pressure_unit": null,
+              "loading_unit": null,
+              "limit": 20
+            }
+          },
+          "time_taken": 0,
+          "timestamp": "2026-03-31T00:56:56.678898"
+        },
+        {
+          "step": "mof_retrieved",
+          "details": {
+            "mof_name": "hMOF-2000981"
+          },
+          "time_taken": 78.26363468170166,
+          "timestamp": "2026-03-31T00:58:14.942558"
+        }
+      ],
+      "final_result": null
+    },
+    {
+      "request_id": 33,
+      "timestamp": "2026-03-31T01:01:21.527610",
+      "query": "Perform a series of GCMC simulations to generate a CO2 adsorption isotherm at 298 K on a high surface area microporous MOF. Use the TraPPE force field for CO2.Plot an isotherm using 10 points upto 1 bar . For each pressure point, run 100 production cycles after 50 initialization cycles",
+      "steps": [
+        {
+          "step": "intent_extracted",
+          "details": {
+            "simulation": {
+              "simulation_type": "MonteCarlo",
+              "system": {
+                "framework_name": null,
+                "temperature": 298.0,
+                "pressure_list": [
+                  100000
+                ],
+                "unit_cells": null,
+                "helium_void_fraction": null
+              },
+              "parameters": {
+                "number_of_cycles": null,
+                "initialization_cycles": null,
+                "forcefield": null,
+                "cutoff": null
+              },
+              "component": {
+                "name": "CO2",
+                "mole_fraction": 1.0
+              }
+            },
+            "discovery": {
+              "mofid": null,
+              "mofkey": null,
+              "name": null,
+              "database": null,
+              "vf_min": 0.6,
+              "vf_max": null,
+              "lcd_min": null,
+              "lcd_max": null,
+              "pld_min": null,
+              "pld_max": 2.0,
+              "sa_m2g_min": 1500,
+              "sa_m2g_max": null,
+              "sa_m2cm3_min": null,
+              "sa_m2cm3_max": null,
+              "pressure_unit": null,
+              "loading_unit": null,
+              "limit": 20
+            }
+          },
+          "time_taken": 7.62939453125e-06,
+          "timestamp": "2026-03-31T01:01:21.531705"
+        },
+        {
+          "step": "discovery_started",
+          "details": {
+            "filters": {
+              "mofid": null,
+              "mofkey": null,
+              "name": null,
+              "database": null,
+              "vf_min": 0.6,
+              "vf_max": null,
+              "lcd_min": null,
+              "lcd_max": null,
+              "pld_min": null,
+              "pld_max": 2.0,
+              "sa_m2g_min": 1500,
+              "sa_m2g_max": null,
+              "sa_m2cm3_min": null,
+              "sa_m2cm3_max": null,
+              "pressure_unit": null,
+              "loading_unit": null,
+              "limit": 20
+            }
+          },
+          "time_taken": 0,
+          "timestamp": "2026-03-31T01:01:21.535707"
+        },
+        {
+          "step": "mof_retrieved",
+          "details": {
+            "mof_name": "hMOF-2000981"
+          },
+          "time_taken": 53.61476278305054,
+          "timestamp": "2026-03-31T01:02:15.150562"
+        }
+      ],
+      "final_result": null
+    },
+    {
+      "request_id": 34,
+      "timestamp": "2026-03-31T01:10:22.337960",
+      "query": "Perform a GCMC simulation of CO2 adsorption at 298 K and 1 bar on a high surface area microporous MOF. Use TraPPE for CO2, and run 500 production cycles after 100 initialization cycles. Report absolute loading in mol/kg and cm3(STP)/g.",
+      "steps": [
+        {
+          "step": "intent_extracted",
+          "details": {
+            "simulation": {
+              "simulation_type": "MonteCarlo",
+              "system": {
+                "framework_name": null,
+                "temperature": 298.0,
+                "pressure_list": [
+                  100000
+                ],
+                "unit_cells": null,
+                "helium_void_fraction": null
+              },
+              "parameters": {
+                "number_of_cycles": null,
+                "initialization_cycles": null,
+                "forcefield": null,
+                "cutoff": null
+              },
+              "component": {
+                "name": "CO2",
+                "mole_fraction": 1.0
+              }
+            },
+            "discovery": {
+              "mofid": null,
+              "mofkey": null,
+              "name": null,
+              "database": null,
+              "vf_min": 0.6,
+              "vf_max": null,
+              "lcd_min": null,
+              "lcd_max": null,
+              "pld_min": null,
+              "pld_max": 2.0,
+              "sa_m2g_min": 1500,
+              "sa_m2g_max": null,
+              "sa_m2cm3_min": null,
+              "sa_m2cm3_max": null,
+              "pressure_unit": null,
+              "loading_unit": null,
+              "limit": 20
+            }
+          },
+          "time_taken": 8.106231689453125e-06,
+          "timestamp": "2026-03-31T01:10:22.342782"
+        },
+        {
+          "step": "discovery_started",
+          "details": {
+            "filters": {
+              "mofid": null,
+              "mofkey": null,
+              "name": null,
+              "database": null,
+              "vf_min": 0.6,
+              "vf_max": null,
+              "lcd_min": null,
+              "lcd_max": null,
+              "pld_min": null,
+              "pld_max": 2.0,
+              "sa_m2g_min": 1500,
+              "sa_m2g_max": null,
+              "sa_m2cm3_min": null,
+              "sa_m2cm3_max": null,
+              "pressure_unit": null,
+              "loading_unit": null,
+              "limit": 20
+            }
+          },
+          "time_taken": 0,
+          "timestamp": "2026-03-31T01:10:22.346853"
+        },
+        {
+          "step": "mof_retrieved",
+          "details": {
+            "mof_name": "hMOF-2000981"
+          },
+          "time_taken": 52.12799787521362,
+          "timestamp": "2026-03-31T01:11:14.474933"
+        }
+      ],
+      "final_result": null
+    },
+    {
+      "request_id": 35,
+      "timestamp": "2026-03-31T01:13:18.440248",
+      "query": "Perform a series of GCMC simulations to generate a CO2 adsorption isotherm at 298 K on a high surface area microporous MOF. Use the TraPPE force field for CO2.Plot an isotherm using 10 points upto 1 bar . For each pressure point, run 100 production cycles after 50 initialization cycles",
+      "steps": [
+        {
+          "step": "intent_extracted",
+          "details": {
+            "simulation": {
+              "simulation_type": "MonteCarlo",
+              "system": {
+                "framework_name": null,
+                "temperature": 298.0,
+                "pressure_list": [
+                  10000.0,
+                  20000.0,
+                  30000.0,
+                  40000.0,
+                  50000.0,
+                  60000.0,
+                  70000.0,
+                  80000.0,
+                  90000.0,
+                  100000.0
+                ],
+                "unit_cells": null,
+                "helium_void_fraction": null
+              },
+              "parameters": {
+                "number_of_cycles": 100,
+                "initialization_cycles": 50,
+                "forcefield": "TraPPE",
+                "cutoff": null
+              },
+              "component": {
+                "name": "CO2",
+                "mole_fraction": 1.0
+              }
+            },
+            "discovery": {
+              "mofid": null,
+              "mofkey": null,
+              "name": null,
+              "database": null,
+              "vf_min": null,
+              "vf_max": null,
+              "lcd_min": null,
+              "lcd_max": null,
+              "pld_min": null,
+              "pld_max": 2.0,
+              "sa_m2g_min": 1500.0,
+              "sa_m2g_max": null,
+              "sa_m2cm3_min": null,
+              "sa_m2cm3_max": null,
+              "pressure_unit": null,
+              "loading_unit": null,
+              "limit": 20
+            }
+          },
+          "time_taken": 9.453372955322266,
+          "timestamp": "2026-03-31T01:13:27.898394"
+        },
+        {
+          "step": "discovery_started",
+          "details": {
+            "filters": {
+              "mofid": null,
+              "mofkey": null,
+              "name": null,
+              "database": null,
+              "vf_min": null,
+              "vf_max": null,
+              "lcd_min": null,
+              "lcd_max": null,
+              "pld_min": null,
+              "pld_max": 2.0,
+              "sa_m2g_min": 1500.0,
+              "sa_m2g_max": null,
+              "sa_m2cm3_min": null,
+              "sa_m2cm3_max": null,
+              "pressure_unit": null,
+              "loading_unit": null,
+              "limit": 20
+            }
+          },
+          "time_taken": 0,
+          "timestamp": "2026-03-31T01:13:27.902747"
+        },
+        {
+          "step": "mof_retrieved",
+          "details": {
+            "mof_name": "hMOF-2000981"
+          },
+          "time_taken": 52.1141459941864,
+          "timestamp": "2026-03-31T01:14:20.016946"
+        },
+        {
+          "step": "raspa_completed",
+          "details": {
+            "status": "success"
+          },
+          "time_taken": 145.9430296421051,
+          "timestamp": "2026-03-31T01:16:45.964997"
+        }
+      ],
+      "final_result": "Workflow completed successfully",
+      "completed_at": "2026-03-31T01:16:45.973056"
+    },
+    {
+      "request_id": 36,
+      "timestamp": "2026-03-31T01:39:27.107402",
+      "query": "Perform a series of GCMC simulations to generate a CO2 adsorption isotherm at 298 K on a high surface area microporous MOF. Use the TraPPE force field for CO2.Plot an isotherm using 10 points upto 1 bar . For each pressure point, run 100 production cycles after 50 initialization cycles",
+      "steps": [
+        {
+          "step": "intent_extracted",
+          "details": {
+            "simulation": {
+              "simulation_type": "MonteCarlo",
+              "system": {
+                "framework_name": null,
+                "temperature": 298.0,
+                "pressure_list": [
+                  10000.0,
+                  20000.0,
+                  30000.0,
+                  40000.0,
+                  50000.0,
+                  60000.0,
+                  70000.0,
+                  80000.0,
+                  90000.0,
+                  100000.0
+                ],
+                "unit_cells": null,
+                "helium_void_fraction": null
+              },
+              "parameters": {
+                "number_of_cycles": 100,
+                "initialization_cycles": 50,
+                "forcefield": "TraPPE",
+                "cutoff": null
+              },
+              "component": {
+                "name": "CO2",
+                "mole_fraction": 1.0
+              }
+            },
+            "discovery": {
+              "mofid": null,
+              "mofkey": null,
+              "name": null,
+              "database": null,
+              "vf_min": 0.6,
+              "vf_max": null,
+              "lcd_min": null,
+              "lcd_max": null,
+              "pld_min": null,
+              "pld_max": 2.0,
+              "sa_m2g_min": 1500.0,
+              "sa_m2g_max": null,
+              "sa_m2cm3_min": null,
+              "sa_m2cm3_max": null,
+              "pressure_unit": "bar",
+              "loading_unit": null,
+              "limit": 20
+            }
+          },
+          "time_taken": 9.183511734008789,
+          "timestamp": "2026-03-31T01:39:36.295307"
+        },
+        {
+          "step": "discovery_started",
+          "details": {
+            "filters": {
+              "mofid": null,
+              "mofkey": null,
+              "name": null,
+              "database": null,
+              "vf_min": 0.6,
+              "vf_max": null,
+              "lcd_min": null,
+              "lcd_max": null,
+              "pld_min": null,
+              "pld_max": 2.0,
+              "sa_m2g_min": 1500.0,
+              "sa_m2g_max": null,
+              "sa_m2cm3_min": null,
+              "sa_m2cm3_max": null,
+              "pressure_unit": "bar",
+              "loading_unit": null,
+              "limit": 20
+            }
+          },
+          "time_taken": 0,
+          "timestamp": "2026-03-31T01:39:36.299348"
+        },
+        {
+          "step": "mof_retrieved",
+          "details": {
+            "mof_name": "hMOF-2000981"
+          },
+          "time_taken": 71.24214577674866,
+          "timestamp": "2026-03-31T01:40:47.541567"
+        },
+        {
+          "step": "raspa_completed",
+          "details": {
+            "status": "success"
+          },
+          "time_taken": 148.1792540550232,
+          "timestamp": "2026-03-31T01:43:15.725324"
+        }
+      ],
+      "final_result": "Workflow completed successfully",
+      "completed_at": "2026-03-31T01:43:15.730003"
     }
   ]
 }
