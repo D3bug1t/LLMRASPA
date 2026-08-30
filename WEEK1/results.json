@@ -1,0 +1,28 @@
+{
+  "framework": "hMOF-2000981",
+  "runs": [
+    {
+      "molecule": "CO2",
+      "uptake_absolute": 10.5,
+      "uptake_excess": 7.3600492416,
+      "enthalpy_of_adsorption": -2.49904,
+      "henry_coefficient": 0.0,
+      "box": {
+        "a": 85.56968,
+        "b": 85.56968,
+        "c": 85.56979
+      },
+      "cycles": 50,
+      "init_cycles": 10,
+      "pressure": 100000.0,
+      "file": "Output/job_20260402_004449/p100000.0_output_hMOF-2000981_2.2.2_298.000000_100000.data"
+    }
+  ],
+  "isotherm": [
+    {
+      "pressure": 100000.0,
+      "uptake": 10.5
+    }
+  ],
+  "status": "completed"
+}

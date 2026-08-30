@@ -358,14 +358,14 @@ class RaspaAgent:
 
         # --- Generate isotherm plot if applicable ---
         is_isotherm = len(pressures) > 1
-
+        isotherm_path = None
         if is_isotherm and len(success) > 0:
             from plot_isotherm import generate_isotherm_plot
             print(f"\n📊 Combining {len(pressures)} outputs to generate Isotherm Plot...")
-            generate_isotherm_plot(job_dir, "Plots")
+            isotherm_path = generate_isotherm_plot(job_dir, "Plots")
         print("\n🎉 All simulations completed.")
 
-        return results
+        return [results,isotherm_path]
 
     # ---------------------------------
     # Fetch CIF

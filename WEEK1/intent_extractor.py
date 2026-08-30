@@ -1,6 +1,10 @@
 import json
 from pydantic import BaseModel
 from typing import Optional, List, Dict
+import traceback
+import sys
+import warnings
+warnings.filterwarnings("ignore")
 
 
 class DiscoveryIntent(BaseModel):
@@ -29,7 +33,8 @@ class IntentExtractor:
         if api_key:
             import google.generativeai as genai
             genai.configure(api_key=api_key)
-            self.model = genai.GenerativeModel("gemini-2.5-flash")
+            # self.model = genai.GenerativeModel("gemini-2.5-flash")
+            self.model = genai.GenerativeModel("gemma-3-27b-it")
         else:
             self.model = None
 
@@ -37,22 +42,50 @@ class IntentExtractor:
         return """
         You are an expert Molecular Simulation Data Engineer.
         Your task is to extract simulation parameters for RASPA software from natural language and
-        Extract MOF structural search filters from user input.
+        Extract MOF structural search filters from user input. You don't have to return anything except the JSON I ask for, nothing else!
 
         
         RULES:
         1. Output ONLY valid JSON. No markdown formatting.
         2. Map missing values to null.
-        3. Convert pressures to Pascals (e.g., 1 bar = 100000 Pa).
-        4. If the user gives a range of pressures, output them as a list.
-        5. Do NOT invent unsupported properties.
-        6. Interpret qualitative language intelligently:
+        3. `simulation.system.pressure_list` must always be a JSON array of numeric pressure values in Pascals whenever any pressure information is provided.
+        4. Convert every pressure to Pascals before returning it (e.g., 1 bar = 100000 Pa, 1 atm = 101325 Pa, 1 kPa = 1000 Pa, 1 MPa = 1000000 Pa).
+        5. Pressure extraction rules:
+        - `pressure_list` must contain the final full list of simulation pressures, not a summary, not endpoints only, and not natural-language text.
+        - If the user gives explicit individual pressures such as `0.1, 0.5, 1 bar`, return exactly those pressures in the same order after converting each one to Pa.
+        - If the user gives `N points up to X`, `N points upto X`, `isotherm with N points up to X`, `N pressure points until X`, or equivalent, generate exactly N linearly evenly spaced pressures from X/N to X, inclusive, after unit conversion.
+        - Use this formula for that case: pressure_list[i] = (i + 1) * X / N for i = 0 to N-1.
+        - Never return only `[start, end]` when N > 2.
+        - Spacing must always be linear, never logarithmic, unless the user explicitly says logarithmic.
+        - If the user gives only a maximum pressure for an isotherm and also gives N points, assume the sequence starts above zero and ends at that maximum pressure.
+        - If the user gives a pressure range with an explicit point count, generate exactly that many linearly spaced values including both endpoints, except replace 0 Pa with a small positive value if needed.
+        - If the user gives a pressure range but does not specify the number of points, preserve only the explicit pressures stated by the user unless the user clearly requests an isotherm grid.
+        - If the user mentions an isotherm, assume `pressure_list` is required.
+
+        Example 1:
+        User: "10 points upto 1 bar"
+        Return `pressure_list` with exactly 10 values in Pa:
+        [10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000, 100000]
+
+        Example 2:
+        User: "isotherm with 6 points up to 5 bar"
+        Return:
+        [83333.33333333333, 166666.66666666666, 250000, 333333.3333333333, 416666.6666666667, 500000]
+
+        Example 3:
+        User: "run at 0.1, 0.5 and 1 bar"
+        Return:
+        [10000, 50000, 100000]
+
+        6. When pressure information is missing entirely, set `pressure_list` to null.
+        7. Do NOT invent unsupported properties.
+        8. Interpret qualitative language intelligently:
         - "high surface area" → sa_m2g_min = 1500
         - "high porosity" → vf_min = 0.6
         - "microporous" → pld_max = 2.0
         - "large pore" → lcd_min = 10.0
         and others as needed based on common MOF terminology.
-        7. Default limit = 20 if not specified.
+        9. Default limit = 20 if not specified.
         
         TARGET JSON STRUCTURE:
         {
@@ -77,7 +110,6 @@ class IntentExtractor:
           }
         },
         "discovery": {
-        {
             "mofid": null,
             "mofkey": null,
             "name": null,
@@ -95,8 +127,14 @@ class IntentExtractor:
             "pressure_unit": null,
             "loading_unit": null,
             "limit": 20
-            }
-            }
+          }
+        }
+            Before outputting JSON, internally:
+            1. Detect whether the user provided explicit pressure values or asked for generated pressure points.
+            2. If explicit values are provided, preserve them exactly in order and convert them to Pascals.
+            3. If N points up to X is requested, compute exactly N values using `(i + 1) * X / N`.
+            4. Ensure the last value is exactly the requested maximum pressure in Pascals.
+            5. Output only the final JSON.
                     """
 #         return """
 # Extract both:
@@ -145,7 +183,18 @@ class IntentExtractor:
 
     #     clean = response.text.replace("```json","").replace("```","").strip()
     #     return json.loads(clean)
+    import json
+    import re
+
+    # def safe_json_extract(text):
+    #     match = re.search(r"\{.*\}", text, re.DOTALL)
+    #     if not match:
+    #         raise ValueError("No JSON found in LLM response")
+    #     return json.loads(match.group())
+
     def extract(self, user_input: str, request_id: Optional[int] = None, mock: bool = False):
+        print("Inside IE", file=sys.stderr)
+
 
         # ------------------------------
         # MOCK MODE
@@ -202,7 +251,10 @@ class IntentExtractor:
             )
 
             clean = response.text.replace("```json", "").replace("```", "").strip()
+            # clean = safe_json_extract(response.text )
+
             data = json.loads(clean)
+            # data  = clean
 
             # Optional safety: enforce keys exist
             if "simulation" not in data:
@@ -213,8 +265,13 @@ class IntentExtractor:
 
             return data
 
+        # except Exception as e:
+        #     print("❌ Intent extraction error:", e)
+            
         except Exception as e:
-            print("❌ Intent extraction error:", e)
+            print("❌ Intent extraction crashed", file=sys.stderr)
+            traceback.print_exc(file=sys.stderr)
+            raise   # 🔥 THIS IS CRITICAL
 
             # Safe fallback
             return {
@@ -258,4 +315,3 @@ class IntentExtractor:
                     "limit": 20
                 }
             }
-

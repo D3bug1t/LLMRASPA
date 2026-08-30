@@ -31,4 +31,13 @@ WEEK1/raspa_env/
 
 # Runtime logs
 # *.log
-# WEEK1/raspa_log.json
+# WEEK1/raspa_log.jsonWEEK1/node_modules/
+WEEK1/Output/
+WEEK1/Plots/
+WEEK1/.codex
+WEEK1/nano
+WEEK1/node_modules/
+WEEK1/Output/
+WEEK1/Plots/
+WEEK1/.codex
+WEEK1/nano

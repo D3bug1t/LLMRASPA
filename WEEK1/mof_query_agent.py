@@ -247,6 +247,7 @@ Return JSON in this exact structure:
         gas: Optional[str] = None,
         pressure: Optional[float] = None,
         min_loading: Optional[float] = None,
+        interactive: bool = True   
     ):
         """
         Receives already-extracted discovery filters.
@@ -304,18 +305,29 @@ Return JSON in this exact structure:
             print("⚠ No results found. Attempting relaxed search...")
             results = self._relaxed_search(fetch_kwargs, gas, pressure, min_loading)
 
-        self._display_summary_table(results)
+        self._display_summary_table(results,interactive=interactive)
 
-        try:
-            index = int(input("Enter MOF index to continue (-1 to skip): "))
-        except:
-            return None
+        # try:
+        #     index = int(input("Enter MOF index to continue (-1 to skip): "))
+        # except:
+        #     return None
+        if interactive:
+            try:
+                index = int(input("Enter MOF index to continue (-1 to skip): "))
+            except:
+                return None
 
-        return results[index] if 0 <= index < len(results) else None
+            return results[index] if 0 <= index < len(results) else None
+
+        else:
+            # 🔥 API MODE → return ALL candidates
+            return results
+
+        # return results[index] if 0 <= index < len(results) else None
 
 
     
-    def _display_summary_table(self, mofs):
+    def _display_summary_table(self, mofs,interactive=True):
 
         if not mofs:
             print("No MOFs to display.")
@@ -342,7 +354,8 @@ Return JSON in this exact structure:
                 f"{vf:<6} {pld:<6} {lcd:<6} {sa:<10}"
             )
 
-        print("\n👉 Select MOF by index.")
+        if interactive:
+            print("\n👉 Select MOF by index.")
 
 
 
